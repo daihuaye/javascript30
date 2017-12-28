@@ -1,22 +1,26 @@
-function playSound(e) {
-  const btn = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+const secondHand = document.querySelector('.second-hand');
+const hourHand = document.querySelector('.hour-hand');
+const minHand = document.querySelector('.min-hand');
+
+function setTime() {
+  const now = new Date();
+  const hours = now.getHours();
+  const mins = now.getMinutes();
+  const seconds = now.getSeconds();
   
-  if (!audio) return;
+  // avoid the animation break, for example second hand when from 59 to 0, the degree will be reduce from 350 to 0, 
+  // which will be seeing the second hand going backward to the orignal start point
+  hourHand.style.transitionDuration = hours === 0 ? '0s': '1s';
+  minHand.style.transitionDuration = mins === 0 ? '0s': '1s';
+  secondHand.style.transitionDuration = seconds === 0 ? '0s': '1s';
   
-  audio.currentTime = 0;
-  audio.play();
+  const secondHandDeg = ((seconds / 60) * 360) + 90;
+  const hourHandDeg = ((hours % 12) / 12 * 360) + 90;
+  const minHandDeg = ((mins / 60 ) * 360) + 90;  
   
-  btn.classList.add('playing');
+  secondHand.style.transform = `rotate(${secondHandDeg}deg)`;
+  hourHand.style.transform = `rotate(${hourHandDeg}deg)`;
+  minHand.style.transform = `rotate(${minHandDeg}deg)`;
 }
 
-function removeTransition(e) {
-  if (e.propertyName !== 'transform') return;
-  
-  this.classList.remove('playing');
-}
-
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
-window.addEventListener('keydown', playSound);
+setInterval(setTime, 1000);
