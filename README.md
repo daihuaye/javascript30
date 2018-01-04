@@ -1,4 +1,4 @@
-# My cool website
+# Array Cardio Day 1 [Demo Link](https://accidental-hacksaw.glitch.me/)
 
 This file describes your project to the community. What's your cool website about? What makes it special?
 
@@ -15,4 +15,3 @@ CSS files add styling rules to your content
 ## ← script.js
 
 If you're feeling fancy you can add interactivity to your site with Javascript
-
