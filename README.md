@@ -12,3 +12,7 @@ Day 2. Project - CSS JS Clock
 Day 3. Project - CSS Variables with JS
 [Code Link](https://github.com/daihuaye/javascript30/tree/03-update-css-variables-with-js)
 [Demo Link](https://mature-whip.glitch.me/)
+
+Day 4. Project - Array Cardio Day 1
+[Code Link](https://github.com/daihuaye/javascript30/tree/04-array-cardio-1)
+[Demo Link](https://accidental-hacksaw.glitch.me/)
