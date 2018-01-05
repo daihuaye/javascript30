@@ -16,3 +16,7 @@ Day 3. Project - CSS Variables with JS
 Day 4. Project - Array Cardio Day 1
 [Code Link](https://github.com/daihuaye/javascript30/tree/04-array-cardio-1)
 [Demo Link](https://accidental-hacksaw.glitch.me/)
+
+Day 5. Project - Flex Panels Image Gallery
+[Code Link](https://github.com/daihuaye/javascript30/tree/05-flex-panels-image-gallery)
+[Demo Link](https://surf-jail.glitch.me/)
