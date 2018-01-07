@@ -20,3 +20,7 @@ Day 4. Project - Array Cardio Day 1
 Day 5. Project - Flex Panels Image Gallery
 [Code Link](https://github.com/daihuaye/javascript30/tree/05-flex-panels-image-gallery)
 [Demo Link](https://surf-jail.glitch.me/)
+
+Day 6. Project - Ajax Type Ahead
+[Code Link](https://github.com/daihuaye/javascript30/tree/06-ajax-type-ahead)
+[Demo Link](https://odd-subway.glitch.me/)
