@@ -1,4 +1,4 @@
-# Ajax Type Ahead [Demo Link](https://odd-subway.glitch.me/)
+# My cool website
 
 This file describes your project to the community. What's your cool website about? What makes it special?
 

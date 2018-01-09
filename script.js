@@ -1,39 +1,50 @@
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-const cities = [];
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-fetch(endpoint)
-    .then(blob => blob.json())
-    .then(data => cities.push(...data));
+ctx.strokeStyle = '#BADA55';
+ctx.lineCap = 'round';
+ctx.lineJoin = 'round';
 
-function findMatches(wordToMatch, cities) {
-  let regex = new RegExp(wordToMatch, 'gi');
-  return cities.filter(data => {
-    return data.city.match(regex) || data.state.match(regex);
-  });
-}
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+let hsl = 0;
+let direction = true;
 
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function displayMatches() {
-  const matches = findMatches(this.value, cities);
-  const html = matches.map(match => {
-    let regex = new RegExp(this.value, 'gi');
-    let cityName = match.city.replace(regex, `<span class="hl">${this.value}</span>`);
-    let stateName = match.state.replace(regex, `<span class="hl">${this.value}</span>`);
+function draw(e) {
+  if (!isDrawing) return;
+  
+  ctx.strokeStyle = `hsl(${hsl}, 100%, 50%)`;
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  lastX = e.offsetX;
+  lastY = e.offsetY;
+  
+  hsl++;
+  if (hsl >= 360) {
+    hsl = 0;
+  }
+  
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction;
+  }
     
-    return `
-    <li>
-      <span>${cityName}, ${stateName}</span>
-      <span>${numberWithCommas(match.population)}</span>
-    </li>`;
-  }).join('');
-  suggestions.innerHTML = html;
+  if (direction) {
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--;
+  }
 }
 
-const input = document.querySelector('.search');
-const suggestions = document.querySelector('.suggestions');
-
-input.addEventListener('change', displayMatches);
-input.addEventListener('keyup', displayMatches);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', (e) => { 
+  isDrawing = true;
+  lastX = e.offsetX;
+  lastY = e.offsetY;
+});
+canvas.addEventListener('mouseup', () => { isDrawing = false });
+canvas.addEventListener('mouseout', () => { isDrawing = false });
