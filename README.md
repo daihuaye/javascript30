@@ -24,3 +24,7 @@ Day 5. Project - Flex Panels Image Gallery
 Day 6. Project - Ajax Type Ahead
 [Code Link](https://github.com/daihuaye/javascript30/tree/06-ajax-type-ahead)
 [Demo Link](https://odd-subway.glitch.me/)
+
+Day 7. Project - Have fun with HTML Canvas
+[Code Link](https://github.com/daihuaye/javascript30/tree/07-fun-with-html-canvas)
+[Demo Link](https://equable-cylinder.glitch.me/)
