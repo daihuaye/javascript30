@@ -1,50 +1,35 @@
-const canvas = document.querySelector('#draw');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const checkboxes = document.querySelectorAll('input');
+let isShiftKeyDown = false;
+let currentCheckbox = undefined;
 
-ctx.strokeStyle = '#BADA55';
-ctx.lineCap = 'round';
-ctx.lineJoin = 'round';
 
-let isDrawing = false;
-let lastX = 0;
-let lastY = 0;
-let hsl = 0;
-let direction = true;
-
-function draw(e) {
-  if (!isDrawing) return;
-  
-  ctx.strokeStyle = `hsl(${hsl}, 100%, 50%)`;
-  ctx.beginPath();
-  ctx.moveTo(lastX, lastY);
-  ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.stroke();
-  lastX = e.offsetX;
-  lastY = e.offsetY;
-  
-  hsl++;
-  if (hsl >= 360) {
-    hsl = 0;
+function onClick(event) {
+  if (isShiftKeyDown && event.target.checked) {
+    let shouldUpdate = false;
+    currentCheckbox.checked = true;
+    checkboxes.forEach(box => {
+      if (shouldUpdate) {
+        box.checked = true;  
+      }
+      if (box === currentCheckbox || box === event.target) {
+        shouldUpdate = !shouldUpdate;
+      }
+    });
   }
-  
-  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
-    direction = !direction;
-  }
-    
-  if (direction) {
-    ctx.lineWidth++;
+  currentCheckbox = event.target;
+}
+
+function onKeyDown(event) {
+  if (event.keyCode === 16) {
+    isShiftKeyDown = true;
   } else {
-    ctx.lineWidth--;
+    isShiftKeyDown = false;
   }
 }
 
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', (e) => { 
-  isDrawing = true;
-  lastX = e.offsetX;
-  lastY = e.offsetY;
+checkboxes.forEach(box => {
+  box.addEventListener('change', onClick)
 });
-canvas.addEventListener('mouseup', () => { isDrawing = false });
-canvas.addEventListener('mouseout', () => { isDrawing = false });
+
+document.addEventListener('keydown', onKeyDown);
+document.addEventListener('keyup', () => { isShiftKeyDown = false });
