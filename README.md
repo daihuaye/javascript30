@@ -28,3 +28,7 @@ Day 6. Project - Ajax Type Ahead
 Day 7. Project - Have fun with HTML Canvas
 [Code Link](https://github.com/daihuaye/javascript30/tree/07-fun-with-html-canvas)
 [Demo Link](https://equable-cylinder.glitch.me/)
+
+Day 8. Porject - Check multiple checkboxes
+[Code Link](https://github.com/daihuaye/javascript30/tree/08-check-multiple-checkboxes)
+[Demo Link](https://adaptable-hisser.glitch.me/)
