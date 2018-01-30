@@ -32,3 +32,7 @@ Day 7. Project - Have fun with HTML Canvas
 Day 8. Porject - Check multiple checkboxes
 [Code Link](https://github.com/daihuaye/javascript30/tree/08-check-multiple-checkboxes)
 [Demo Link](https://adaptable-hisser.glitch.me/)
+
+Day 9. Project - LocalStorage and Event Delegation
+[Code Link](https://github.com/daihuaye/javascript30/tree/09-LocalStorage-)
+[Demo Link](https://abrupt-crawdad.glitch.me/)
