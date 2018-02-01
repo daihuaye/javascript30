@@ -1,41 +1,34 @@
-const addItems = document.querySelector('.add-items');
-const itemsList = document.querySelector('.plates');
-const items = JSON.parse(localStorage.getItem('items')) || [];
+const triggers = document.querySelectorAll('.cool > li');
+const nav = document.querySelector('.top');
+const background = document.querySelector('.dropdownBackground');
 
-function addItem(event) {
-  event.preventDefault();
-  const text = (this.querySelector("[name='item']")).value;
-  const item = {
-    text,
-    done: false
-  };
-  items.push(item);
-  populateList(items, itemsList);
-  localStorage.setItem('items', JSON.stringify(items));
-  this.reset();
-}
-
-function populateList(plates = [], plateList) {
-  plateList.innerHTML = plates.map((plate, i) => {
-    return `
-      <li>
-        <input type="checkbox" data-index="${i}" id="item${i}" ${plate.done ? 'checked' : ''} />
-        <label for="item${i}">${plate.text}</label>
-      </li>
-    `;
-  }).join('');
-}
-
-function toggleDone(event) {
-  if (event.target.matches("[type='checkbox']")) {
-    const index = event.target.dataset.index;
-    items[index].done = !items[index].done;
-    localStorage.setItem('items', JSON.stringify(items));
+function handleEnter() {
+  this.classList.add('trigger-enter');
+  setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+  background.classList.add('open');
+  
+  const dropdown = this.querySelector('.dropdown');
+  const dropdownCoords = dropdown.getBoundingClientRect();
+  const navCoords = nav.getBoundingClientRect();
+  
+  const coords = {
+    height: dropdownCoords.height,
+    width: dropdownCoords.width,
+    top: dropdownCoords.top - navCoords.top,
+    left: dropdownCoords.left - navCoords.left
   }
   
+  background.style.setProperty('width', `${coords.width}px`);
+  background.style.setProperty('height', `${coords.height}px`);
+  background.style.setProperty('top', `${coords.top}px`);
+  background.style.setProperty('left', `${coords.left}px`);
 }
 
-addItems.addEventListener('submit', addItem);
-itemsList.addEventListener('click', toggleDone);
+function handleLeave() {
+  this.classList.remove('trigger-enter', 'trigger-enter-active');
+  background.classList.remove('open');
+}
 
-populateList(items, itemsList);
+triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+

@@ -1,77 +1,143 @@
 html {
-      box-sizing: border-box;
-      background:url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat;
-      background-size:cover;
-      min-height:100vh;
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-family: Futura,"Trebuchet MS",Arial,sans-serif
-    }
-    *, *:before, *:after {box-sizing: inherit; }
+    box-sizing: border-box;
+    font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+      linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
+      linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+      linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+  }
 
-    svg {
-      fill:white;
-      background: rgba(0,0,0,0.1);
-      padding: 20px;
-      border-radius: 50%;
-      width:200px;
-      margin-bottom: 50px;
-    }
+  h2 {
+    margin-top: 0;
+    padding-top: .8em;
+  }
 
-    .wrapper {
-      padding: 20px;
-      max-width: 350px;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
-    }
+  nav {
+    position: relative;
+    perspective: 600px;
+  }
 
-    h2 {
-      text-align: center;
-      margin: 0;
-      font-weight: 200;
-    }
+  .cool > li > a {
+    color: yellow;
+    text-decoration: none;
+    font-size: 20px;
+    background: rgba(0,0,0,0.2);
+    padding:10px 20px;
+    display: inline-block;
+    margin:20px;
+    border-radius:5px;
+  }
 
-    .plates {
-      margin: 0;
-      padding: 0;
-      text-align: left;
-      list-style: none;
-    }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
 
-    .plates li {
-      border-bottom: 1px solid rgba(0,0,0,0.2);
-      padding: 10px 0;
-      font-weight: 100;
-      display: flex;
-    }
+  .cool > li {
+    position: relative;
+    display:flex;
+    justify-content: center;
+  }
 
-    .plates label {
-      flex:1;
-      cursor: pointer;
+  .dropdown {
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    padding:20px;
+    top:-20px;
+    border-radius:2px;
+    transition: all 0.5s;
+    transform: translateY(100px);
+    will-change: opacity;
+    display: none;
+  }
 
-    }
+  .trigger-enter .dropdown {
+    display: block;
+  }
 
-    .plates input {
-      display: none;
-    }
+  .trigger-enter-active .dropdown {
+    opacity: 1;
+  }
 
-    .plates input + label:before {
-      content: '⬜️';
-      margin-right: 10px;
-    }
 
-    .plates input:checked + label:before {
-      content: '🌮';
-    }
 
-    .add-items {
-      margin-top: 20px;
-    }
+  .dropdownBackground {
+    width:100px;
+    height:100px;
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+    transition:all 0.3s, opacity 0.1s, transform 0.2s;
+    transform-origin: 50% 0;
+    display: flex;
+    justify-content: center;
+    opacity:0;
+  }
 
-    .add-items input {
-      padding:10px;
-      outline:0;
-      border:1px solid rgba(0,0,0,0.1);
-    }
+  .dropdownBackground.open {
+    opacity: 1;
+  }
+
+  .arrow {
+    position: absolute;
+    width:20px;
+    height:20px;
+    display: block;
+    background:white;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .bio {
+    min-width:500px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.7;
+  }
+
+  .bio img {
+    float:left;
+    margin-right:20px;
+  }
+
+  .courses {
+    min-width:300px;
+  }
+
+  .courses li {
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .dropdown a {
+    text-decoration: none;
+    color: #ffc600;
+  }
+
+  a.button {
+    background:black;
+    display: block;
+    padding:10px;
+    color:white;
+    margin-bottom: 10px;
+  }
+
+
+  /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
+  .button[href*=twitter] { background: #019FE9; }
+  .button[href*=facebook] { background: #3B5998; }
+  .button[href*=courses] { background: #ffc600; }
