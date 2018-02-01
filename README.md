@@ -36,3 +36,7 @@ Day 8. Porject - Check multiple checkboxes
 Day 9. Project - LocalStorage and Event Delegation
 [Code Link](https://github.com/daihuaye/javascript30/tree/09-LocalStorage-and-Event-Delegation)
 [Demo Link](https://abrupt-crawdad.glitch.me/)
+
+Day 10. Project - Strip Follow Along Dropdown
+[Code Link](https://github.com/daihuaye/javascript30/tree/10-strip-follow-along-dropdown)
+[Demo Link](https://six-leather.glitch.me/)
