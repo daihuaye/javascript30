@@ -40,3 +40,7 @@ Day 9. Project - LocalStorage and Event Delegation
 Day 10. Project - Strip Follow Along Dropdown
 [Code Link](https://github.com/daihuaye/javascript30/tree/10-strip-follow-along-dropdown)
 [Demo Link](https://six-leather.glitch.me/)
+
+Day 11. Project - Video Speed Control UI
+[Code Link](https://github.com/daihuaye/javascript30/tree/11-video-rate-control-ui)
+[Demo Link](https://puffy-protocol.glitch.me/)
