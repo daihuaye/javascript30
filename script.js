@@ -1,34 +1,18 @@
-const triggers = document.querySelectorAll('.cool > li');
-const nav = document.querySelector('.top');
-const background = document.querySelector('.dropdownBackground');
+const video = document.querySelector('video');
+const speed = document.querySelector('.speed');
+const speedBar = document.querySelector('.speed-bar');
 
-function handleEnter() {
-  this.classList.add('trigger-enter');
-  setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
-  background.classList.add('open');
+function handleMouseMove(e) {
+  let y = e.pageY - this.offsetTop;
+  let percentage = y / this.offsetHeight;
+  let min = 0.4;
+  let max = 4;
+  let height = Math.round(percentage * 100) + '%';
+  let rate = (percentage * (max - min) + min).toFixed(2);
   
-  const dropdown = this.querySelector('.dropdown');
-  const dropdownCoords = dropdown.getBoundingClientRect();
-  const navCoords = nav.getBoundingClientRect();
-  
-  const coords = {
-    height: dropdownCoords.height,
-    width: dropdownCoords.width,
-    top: dropdownCoords.top - navCoords.top,
-    left: dropdownCoords.left - navCoords.left
-  }
-  
-  background.style.setProperty('width', `${coords.width}px`);
-  background.style.setProperty('height', `${coords.height}px`);
-  background.style.setProperty('top', `${coords.top}px`);
-  background.style.setProperty('left', `${coords.left}px`);
+  speedBar.style.height = height;
+  speedBar.textContent = rate + 'x';
+  video.playbackRate = rate;
 }
 
-function handleLeave() {
-  this.classList.remove('trigger-enter', 'trigger-enter-active');
-  background.classList.remove('open');
-}
-
-triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
-triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
-
+speed.addEventListener('mousemove', handleMouseMove);
