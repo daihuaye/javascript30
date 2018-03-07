@@ -44,3 +44,7 @@ Day 10. Project - Strip Follow Along Dropdown
 Day 11. Project - Video Speed Control UI
 [Code Link](https://github.com/daihuaye/javascript30/tree/11-video-rate-control-ui)
 [Demo Link](https://puffy-protocol.glitch.me/)
+
+Day 12. Project - highlight selected boxes with mouse
+[Code Link](https://github.com/daihuaye/javascript30/12-dragable-highlight-boxes)
+[Demo Link](https://secretive-hexagon.glitch.me/)
