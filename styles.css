@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+}
+
+.parent {
+  width: 540px;
+  margin: 0 auto;
+}
+
+.box {
+  border: 2px solid #111;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  user-select: none;
+  outline: none;
+}
+
+.bg-lightgrey {
+  background-color: lightgrey;
+}
+
+.mousebox {
+  position: fixed;
+  border: 1px solid #111;
+  background-color: rgba(0,0,0,0.2);
+}
