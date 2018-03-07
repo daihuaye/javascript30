@@ -46,5 +46,5 @@ Day 11. Project - Video Speed Control UI
 [Demo Link](https://puffy-protocol.glitch.me/)
 
 Day 12. Project - highlight selected boxes with mouse
-[Code Link](https://github.com/daihuaye/javascript30/12-dragable-highlight-boxes)
+[Code Link](https://github.com/daihuaye/javascript30/tree/12-dragable-highlight-boxes)
 [Demo Link](https://secretive-hexagon.glitch.me/)
