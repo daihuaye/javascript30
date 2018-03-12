@@ -1,4 +1,4 @@
-# My cool website
+# Switch button without JS [Demo Link](https://fast-cannon.glitch.me/)
 
 This file describes your project to the community. What's your cool website about? What makes it special?
 
