@@ -1,27 +1,50 @@
-h1 {
-  text-align: center;
-}
-
-.parent {
-  width: 540px;
-  margin: 0 auto;
-}
-
-.box {
-  border: 2px solid #111;
-  width: 100px;
-  height: 100px;
+.switch {
   display: inline-block;
-  user-select: none;
-  outline: none;
+  width: 60px;
+  height: 34px;
+  position: relative;
 }
 
-.bg-lightgrey {
-  background-color: lightgrey;
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ccc;
+  transition: .4s;
 }
 
-.mousebox {
-  position: fixed;
-  border: 1px solid #111;
-  background-color: rgba(0,0,0,0.2);
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.round {
+  border-radius: 34px;
+}
+
+.round.slider:before {
+  border-radius: 34px;
 }
