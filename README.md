@@ -48,3 +48,7 @@ Day 11. Project - Video Speed Control UI
 Day 12. Project - highlight selected boxes with mouse
 [Code Link](https://github.com/daihuaye/javascript30/tree/12-dragable-highlight-boxes)
 [Demo Link](https://secretive-hexagon.glitch.me/)
+
+Day 13. Project - Switch button without JS
+[Code Link]()
+[Demo Link](https://fast-cannon.glitch.me/)
