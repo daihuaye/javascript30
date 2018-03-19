@@ -52,3 +52,7 @@ Day 12. Project - highlight selected boxes with mouse
 Day 13. Project - Switch button without JS
 [Code Link](https://github.com/daihuaye/javascript30/tree/13-switch-button-without-js)
 [Demo Link](https://fast-cannon.glitch.me/)
+
+Day 14. Project - A Millionaire Game
+[Code Link](https://github.com/daihuaye/javascript30/tree/14-a-millionaire-game)
+[Demo Link](https://bubble-operation.glitch.me/)
